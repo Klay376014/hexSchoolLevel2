@@ -1,0 +1,770 @@
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap%27);
+body {
+  background-color: #020202;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #fff;
+  font-weight: 900;
+}
+
+@mixin mobile {
+  @media (max-width: 390px) {
+    @content;
+  }
+}
+
+@mixin pad {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+.container {
+  max-width: 1296px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  @include pad {
+    padding: 0px 12px;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 40px;
+
+  .logo {
+    padding: 20px 0px;
+    @include mobile {
+      padding: 28px 10px;
+    }
+    a {
+      display: block;
+      background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2023web-camp/logo.png");
+      width: 245px;
+      height: 40px;
+      text-indent: 101%; /*首行縮排*/
+      overflow: hidden; /*自動隱藏超出的文字或圖片*/
+      white-space: nowrap;
+      background-size: 100% 100%;
+      @include mobile {
+        width: 147px;
+        height: 24px;
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    padding: 28px 0px;
+    li {
+      margin-left: 20px;
+      @include mobile {
+        display: none;
+      }
+    }
+    span {
+      display: none;
+      @include mobile {
+        display: block;
+        padding-right: 14px;
+      }
+    }
+  }
+}
+
+.slogan {
+  font-size: 120px;
+  line-height: 120%;
+  margin-bottom: 40px;
+  @include pad {
+    font-size: 72px;
+  }
+  @include mobile {
+    font-size: 48px;
+  }
+}
+
+.start {
+  margin-bottom: 100px;
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 20px 40px;
+    color: #fff;
+    font-size: 20px;
+    line-height: 24px;
+    border: 1px solid #ffffff;
+    border-radius: 16px;
+    width: 80px;
+  }
+}
+
+.arrow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: end;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 160px;
+  @include mobile {
+    margin-bottom: 120px;
+  }
+  img {
+    display: block;
+    visibility: hidden;
+    &:nth-child(3) {
+      -webkit-animation: slide-up 4s ease-in-out infinite;
+      animation: slide-up 4s ease-in-out infinite;
+    }
+    &:nth-child(2) {
+      -webkit-animation: slide-up 4s ease-in-out 0.2s infinite;
+      animation: slide-up 4s ease-in-out 0.2s infinite;
+      -webkit-animation-delay: 0.2s;
+      animation-delay: 0.2s;
+      /* 延遲 0.2 秒開始動畫 */
+    }
+    &:nth-child(1) {
+      -webkit-animation: slide-up 4s ease-in-out 0.4s infinite;
+      animation: slide-up 4s ease-in-out 0.4s infinite;
+      -webkit-animation-delay: 0.4s;
+      animation-delay: 0.4s;
+      /* 延遲 0.4 秒開始動畫 */
+    }
+    @include mobile {
+      width: 117px;
+      height: auto;
+    }
+  }
+}
+
+@-webkit-keyframes slide-up {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: hidden;
+  }
+  30% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    visibility: visible;
+  }
+  60% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  80% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    visibility: hidden;
+  }
+  30% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+    visibility: visible;
+  }
+  60% {
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+  80% {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+  }
+}
+
+.service {
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    @include pad {
+      flex-direction: column;
+    }
+  }
+  p {
+    width: 33%;
+    font-size: 32px;
+    line-height: 120%;
+    @include pad {
+      margin-bottom: 24px;
+    }
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+  h2 {
+    width: 66%;
+    font-size: 48px;
+    line-height: 120%;
+    @include pad {
+      font-size: 40px;
+      width: 80%;
+    }
+    @include mobile {
+      font-size: 32px;
+      width: 100%;
+      letter-spacing: 2px;
+    }
+  }
+  &-card {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    @include pad {
+      flex-wrap: wrap;
+    }
+    li {
+      display: flex;
+      width: 33%;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid #525252;
+      padding: 80px 40px;
+      border-radius: 16px;
+      margin-right: 24px;
+      @include pad {
+        width: 40%;
+        padding: 40px 20px;
+        margin-right: 1%;
+        margin-bottom: 20px;
+      }
+      @include mobile {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 12px;
+      }
+      img {
+        width: 100px;
+        display: block;
+        margin-bottom: 20px;
+        object-fit: none;
+      }
+      h2 {
+        font-size: 32px;
+        line-height: 120%;
+        margin-bottom: 20px;
+      }
+      p {
+        width: 100%;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+      }
+    }
+  }
+  margin-bottom: 160px;
+  @include mobile {
+    margin-bottom: 120px;
+  }
+}
+
+.partner {
+  margin-bottom: 80px;
+  @include mobile {
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: 32px;
+    line-height: 120%;
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+}
+
+.partner-logo {
+  margin-bottom: 160px;
+  .row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    position: relative;
+    &::after,
+    &::before {
+      content: "";
+      position: sticky;
+      width: 196px;
+      height: 40px;
+      top: 0;
+    }
+    &::before {
+      left: 0;
+      padding-right: 196px;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      @include mobile {
+        left: -12px;
+      }
+    }
+    &::after {
+      right: 0;
+      padding-left: 196px;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      transform: rotate(-180deg);
+      @include mobile {
+        right: -12px;
+      }
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    img {
+      display: block;
+      width: 160px;
+      height: 40px;
+      max-width: initial;
+    }
+    @include mobile {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.swiper {
+  margin-top: 160px;
+  @include mobile {
+    margin-top: 48px;
+  }
+}
+
+.slide-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px;
+  margin-bottom: 12px;
+  .star {
+    margin-bottom: 22px;
+    ul {
+      display: flex;
+    }
+    img {
+      margin-right: 6px;
+    }
+  }
+  .comment {
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 400;
+    }
+  }
+  .commenter {
+    display: flex;
+    &-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-left: 16px;
+      h3 {
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 150%;
+      }
+      p {
+        font-size: 14px;
+        line-height: 150%;
+        font-weight: 400;
+      }
+    }
+    @include mobile {
+      margin-top: 20px;
+    }
+  }
+}
+
+.swiper-pagination {
+  --swiper-pagination-bottom: 0px;
+  --swiper-pagination-bullet-inactive-color: #fff;
+}
+
+.container-white {
+  background-color: #fff;
+  color: #000;
+  border-radius: 160px;
+  margin-bottom: 160px;
+  @include pad {
+    border-radius: 50px;
+  }
+  @include mobile {
+    border-radius: 20px;
+  }
+}
+
+.main {
+  padding: 0px 12px;
+  max-width: 1296px;
+  margin: 0 auto;
+  text-align: center;
+  h2 {
+    display: inline-block;
+    font-size: 80px;
+    text-align: center;
+    line-height: 120%;
+    font-weight: 900;
+    padding-top: 160px;
+    margin-bottom: 80px;
+    @include pad {
+      font-size: 56px;
+    }
+    @include mobile {
+      font-size: 32px;
+      width: 280px;
+      padding-top: 80px;
+    }
+  }
+  .search-bar {
+    margin-bottom: 24px;
+    position: relative;
+    input {
+      width: calc(100% - 76px);
+      padding: 20px 0px 20px 76px;
+      background-color: #f2f2f2;
+      border-radius: 16px;
+      outline: none;
+      border: none;
+      font-size: 16px;
+      line-height: 150%;
+      &:focus,
+      &:active {
+        outline: none;
+        border: none;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 23px;
+      left: 43px;
+      width: 17.5px;
+      height: auto;
+    }
+  }
+
+  .filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    @include mobile {
+      flex-wrap: wrap;
+    }
+    &-category {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0px;
+      color: #919191;
+      @include mobile {
+        order: 3;
+        white-space: nowrap;
+        overflow-x: scroll;
+      }
+      li {
+        display: block;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+        padding: 8px 16px;
+        &:hover,
+        &:active {
+          background-color: #f2f2f2;
+          color: #000;
+          border-radius: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+    .button-1 {
+      @include mobile {
+        order: 1;
+      }
+    }
+    .button-2 {
+      @include mobile {
+        order: 2;
+      }
+    }
+
+    button {
+      background-color: #fff;
+      border: 1px solid #f2f2f2;
+      border-radius: 16px;
+      padding: 20px 36px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      @include pad {
+        padding: 10px;
+      }
+      @include mobile {
+        padding: 20px 36px 20px 40px;
+      }
+    }
+    .material-icons {
+      font-size: 10px;
+      padding-left: 14px;
+    }
+  }
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  text-align-last: left;
+}
+.card {
+  border: 1px solid #f2f2f2;
+  border-radius: 16px;
+  width: 31%;
+  margin-bottom: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  @include pad {
+    width: 48%;
+    margin-bottom: 12px;
+  }
+  @include mobile {
+    width: 100%;
+  }
+  .image {
+    overflow: hidden;
+    img {
+      width: 100%;
+      transition-duration: 1.5s;
+    }
+  }
+  &:hover {
+    img {
+      transform: scale(1.2);
+    }
+  }
+  &-body {
+    padding: 20px 32px;
+    border-top: 1px solid #f2f2f2;
+    @include mobile {
+      padding: 20px 42px;
+    }
+    h3 {
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 120%;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #525252;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+      @include mobile {
+      }
+    }
+  }
+  .descript {
+    flex-grow: 1;
+  }
+  .author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4 {
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 150%;
+    }
+    span {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+    }
+    a {
+      display: block;
+      width: 18px;
+      height: 18px;
+      background-image: url("https://raw.githubusercontent.com/hexschool/2022-web-layout-training/main/2023web-camp/icons/share.png");
+      background-size: contain;
+    }
+  }
+}
+
+.page {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 160px;
+  @include mobile {
+    padding-bottom: 80px;
+  }
+  li {
+    margin-left: 4px;
+    a {
+      display: block;
+      width: 48px;
+      height: 48px;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 14px;
+      color: #020202;
+      text-decoration: none;
+      text-align: center;
+      line-height: 48px;
+      &:hover,
+      &.active {
+        background-color: #020202;
+        color: #fff;
+        border-radius: 16px;
+      }
+    }
+  }
+}
+
+.use-service {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 160px;
+  h3 {
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 120%;
+    margin-bottom: 40px;
+    @include pad {
+      text-align: center;
+      font-size: 32px; 
+      margin-bottom: 32px;
+    }
+    @include mobile {
+      text-align: center;
+      width: 224px;
+    }
+  }
+  button {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 120%;
+    background-color: #000;
+    padding: 20px 40px 20px 40px;
+    border-radius: 16px;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+  .material-icons {
+    font-size: 20px;
+    padding-left: 16px;
+  }
+}
+
+.site-map {
+  border: solid #fff;
+  border-width: 1px 0px;
+  padding: 80px 0px;
+  display: flex;
+  justify-content: space-between;
+  @include mobile {
+    flex-direction: column;
+  }
+  h2 {
+    font-weight: 900;
+    font-size: 80px;
+    line-height: 120%;
+    @include pad {
+      font-size: 48px;
+    }
+    @include mobile {
+      order: 2;
+      margin-bottom: 8px;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+  img {
+    display: block;
+    width: 245px;
+    height: 40px;
+    @include mobile {
+      order: 1;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0px;
+  @include mobile {
+    position: relative;
+  }
+  .copyright-sns {
+    display: flex;
+    justify-content: space-between;
+    @include mobile {
+      flex-direction: column;
+      overflow: visible;
+    }
+    p {
+      margin-right: 100px;
+      @include pad {
+        margin-right: 10px
+      }
+      @include mobile {
+        margin-right: 0;
+        margin-bottom: 38px;
+      }
+    }
+  }
+  .sns {
+    display: flex;
+    justify-content: space-between;
+    li {
+      margin-left: 20px;
+      @include mobile {
+        margin-left: 0;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    .material-icons {
+      font-size: 14px;
+      padding-left: 14px;
+    }
+    @include mobile {
+      position: absolute;
+      right: 0;
+    }
+  }
+}
