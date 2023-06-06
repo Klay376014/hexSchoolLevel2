@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap%27);
-@import 'reset';
+@import "reset";
 body {
   background-color: #020202;
   font-family: "Noto Sans TC", sans-serif;
@@ -100,10 +100,10 @@ body {
     line-height: 24px;
     border: 1px solid #ffffff;
     border-radius: 16px;
-    &:hover{
+    &:hover {
       background-color: #202020;
     }
-    &:active{
+    &:active {
       background-color: #000;
     }
   }
@@ -413,7 +413,7 @@ body {
   --swiper-pagination-bottom: 0;
   --swiper-pagination-bullet-inactive-color: #fff;
 }
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   --swiper-pagination-bullet-width: 12px;
   --swiper-pagination-bullet-height: 12px;
   transform: translate(0%, 10%);
@@ -669,7 +669,7 @@ body {
     margin-bottom: 40px;
     @include pad {
       text-align: center;
-      font-size: 32px; 
+      font-size: 32px;
       margin-bottom: 32px;
     }
     @include mobile {
@@ -687,10 +687,10 @@ body {
     border-radius: 16px;
     border: 2px solid #fff;
     color: #fff;
-    &:hover{
+    &:hover {
       background-color: #202020;
     }
-    &:active{
+    &:active {
       background-color: #000;
     }
   }
@@ -753,7 +753,7 @@ body {
     p {
       margin-right: 100px;
       @include pad {
-        margin-right: 10px
+        margin-right: 10px;
       }
       @include mobile {
         margin-right: 0;
@@ -781,9 +781,11 @@ body {
       font-size: 14px;
       padding-left: 14px;
     }
-    @include mobile {
-      position: absolute;
-      right: 0;
+    &.back_to_top {
+      @include mobile {
+        position: absolute;
+        right: 0;
+      }
     }
   }
 }
