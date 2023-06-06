@@ -4,7 +4,7 @@ const swiper = new Swiper(".swiper", {
   pagination: {
     el: ".swiper-pagination",
     draggable: true,
-    clickable: true
+    clickable: true,
   },
   breakpoints: {
     768: {
@@ -16,4 +16,15 @@ const swiper = new Swiper(".swiper", {
       spaceBetween: 24,
     },
   },
+});
+
+const links = document.querySelectorAll(".page a");
+links.forEach((link) => {
+  link.addEventListener("click", function (event) {
+    event.preventDefault();
+    links.forEach((link) => {
+      link.classList.remove("active");
+    });
+    this.classList.add("active");
+  });
 });

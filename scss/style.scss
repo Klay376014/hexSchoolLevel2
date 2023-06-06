@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap%27);
+@import 'reset';
 body {
   background-color: #020202;
   font-family: "Noto Sans TC", sans-serif;
@@ -7,22 +8,23 @@ body {
 }
 
 @mixin mobile {
-  @media (max-width: 390px) {
+  @media (max-width: 475px) {
     @content;
   }
 }
 
 @mixin pad {
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     @content;
   }
 }
 
 .container {
-  max-width: 1296px;
+  max-width: 1326px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  padding: 0 15px;
   @include pad {
     padding: 0px 12px;
   }
@@ -88,16 +90,22 @@ body {
 
 .start {
   margin-bottom: 100px;
-  a {
-    display: block;
-    text-decoration: none;
+  button {
+    cursor: pointer;
     padding: 20px 40px;
     color: #fff;
+    background: #000;
+    font-weight: 900;
     font-size: 20px;
     line-height: 24px;
     border: 1px solid #ffffff;
     border-radius: 16px;
-    width: 80px;
+    &:hover{
+      background-color: #202020;
+    }
+    &:active{
+      background-color: #000;
+    }
   }
 }
 
@@ -359,7 +367,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 40px;
-  margin-bottom: 12px;
+  margin-bottom: 28px;
   .star {
     margin-bottom: 22px;
     ul {
@@ -401,8 +409,14 @@ body {
 }
 
 .swiper-pagination {
-  --swiper-pagination-bottom: 0px;
+  --swiper-pagination-color: #fff;
+  --swiper-pagination-bottom: 0;
   --swiper-pagination-bullet-inactive-color: #fff;
+}
+.swiper-pagination-bullet-active{
+  --swiper-pagination-bullet-width: 12px;
+  --swiper-pagination-bullet-height: 12px;
+  transform: translate(0%, 10%);
 }
 
 .container-white {
@@ -512,6 +526,7 @@ body {
     }
 
     button {
+      cursor: pointer;
       background-color: #fff;
       border: 1px solid #f2f2f2;
       border-radius: 16px;
@@ -569,9 +584,6 @@ body {
   &-body {
     padding: 20px 32px;
     border-top: 1px solid #f2f2f2;
-    @include mobile {
-      padding: 20px 42px;
-    }
     h3 {
       font-weight: 900;
       font-size: 20px;
@@ -666,6 +678,7 @@ body {
     }
   }
   button {
+    cursor: pointer;
     font-weight: 900;
     font-size: 20px;
     line-height: 120%;
@@ -674,6 +687,12 @@ body {
     border-radius: 16px;
     border: 2px solid #fff;
     color: #fff;
+    &:hover{
+      background-color: #202020;
+    }
+    &:active{
+      background-color: #000;
+    }
   }
   .material-icons {
     font-size: 20px;
